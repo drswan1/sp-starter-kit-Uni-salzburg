@@ -1,6 +1,8 @@
 @import '~@fluentui/react/dist/sass/References.scss';
 
 .calendarContainer {
+    border: 1px solid #ececec;
+	border-radius: 10px;
 	display: grid;
 	grid-template-columns: repeat(7, auto);
 	font-weight: bold;

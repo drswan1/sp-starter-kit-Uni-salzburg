@@ -1,6 +1,13 @@
 @import '~@fluentui/react/dist/sass/References.scss';
+div {
+    font-family:"Segoe UI" ;
+  }
 
 .personalCalendar {
+    box-shadow: 5px 7px 5px rgba(0, 0, 0, 0.1),
+                2px 4px 6px rgba(0, 0, 0, 0.1),
+                1px 1px 12px rgba(0, 0, 0, 0.1);
+                border-radius: 2px;
     @include ms-font-m;
     padding: 1em;
     --varientBGColor: $ms-color-themePrimary;
@@ -17,6 +24,8 @@
     .meetingDate {
         padding: 0.5em;
         font-size: 1.1em;
+        font-weight: bolder;
+        color: #bb352f;
     }
     // Override for PnP SPFX webPartTitle font
     .personalCalendarTitle * {
@@ -85,3 +94,7 @@
         color: $ms-color-alert;
     }
 }
+
+.personalCalendar:hover{box-shadow: 6px 8px 10px rgba(0, 0, 0, 0.1),
+                                    2px 4px 6px rgba(0, 0, 0, 0.1),
+                                    1px 1px 12px rgba(0, 0, 0, 0.1);}
