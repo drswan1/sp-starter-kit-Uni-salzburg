@@ -47,6 +47,7 @@ const EventInfo = (props: MgtTemplateProps) => {
     }
 
     return durationString;
+    console.log("duationString:" + durationString);
   };
 
   const event: Event | undefined = props.dataContext ? props.dataContext.event : undefined;
@@ -55,15 +56,31 @@ const EventInfo = (props: MgtTemplateProps) => {
     return <div />;
   }
 
+  //Austrian Hour time adjustment
+  function hourAdjustment() {
+    let a = startTime.getHours();
+    a = a + 2;
+    if (a === 24) {
+      a = 0;
+    } else if (a === 25) {
+      a = 1;
+    }
+    return a;
+  }
+
   const startTime: Date = new Date(event.start.dateTime);
   const minutes: number = startTime.getMinutes();
+
+  console.log("hours:" + startTime.getHours());
+
+  
 
   return <div>
     <Link href={event.webLink} className={styles.meeting} target='_blank'>
       <div className={styles.linkWrapper}>
         <div className={styles.timeDetails}>
           <div className={styles.start}>
-            {event.isAllDay ? 'All day' : `${startTime.getHours()}:${minutes < 10 ? '0' + minutes : minutes}`}
+            {event.isAllDay ? 'All day' : `${hourAdjustment()}:${minutes < 10 ? '0' + minutes : minutes}`}
           </div>
           <div className={styles.duration}>
             {getDuration(event)}
@@ -126,6 +143,7 @@ export default class PersonalCalendar extends React.Component<IPersonalCalendarP
           //   console.log("Response:", res)
           // }
 
+          console.log("Response:", res);
           resolve(res?.timeZone);
         });
     });
@@ -138,6 +156,7 @@ export default class PersonalCalendar extends React.Component<IPersonalCalendarP
     // update the render date to force reloading data and re-rendering
     // the component
     this.setState({ renderedDateTime: new Date() });
+    console.log(this.state.renderedDateTime);	
   }
 
   /**
