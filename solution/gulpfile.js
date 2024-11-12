@@ -1,7 +1,7 @@
 'use strict';
 
-const gulp = require('gulp');
-const build = require('@microsoft/sp-build-web');
+import gulp from 'gulp';
+import build from '@microsoft/sp-build-web';
 build.addSuppression(`Warning - [sass] The local CSS class 'ms-Grid' is not camelCase and will not be type-safe.`);
 build.addSuppression("Warning - [sass] The local CSS class '-webkit-filter' is not camelCase and will not be type-safe.");
 build.addSuppression("Warning - [sass] The local CSS class 'ms-Spinner-label' is not camelCase and will not be type-safe.");

@@ -21,6 +21,7 @@
     "@microsoft/sp-webpart-base": "1.16.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "react-personal-tasks": "file:",
     "tslib": "2.3.1"
   },
   "resolutions": {
